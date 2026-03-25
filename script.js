@@ -30,8 +30,14 @@ if (typingElement) {
   type();
 }
 
+// FIX: tampilkan saat load
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    el.classList.add("active");
+  });
+});
 
-// ===== SCROLL ANIMATION SAFE =====
+// scroll animation
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".reveal").forEach(el => {
     let top = el.getBoundingClientRect().top;
