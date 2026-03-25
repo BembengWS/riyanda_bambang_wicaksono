@@ -1,4 +1,4 @@
-// ===== SAFE TYPING =====
+// ===== TYPING (SAFE) =====
 const typingElement = document.getElementById("typing");
 
 if (typingElement) {
@@ -30,19 +30,24 @@ if (typingElement) {
   type();
 }
 
-// FIX: tampilkan saat load
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".reveal").forEach(el => {
-    el.classList.add("active");
-  });
-});
 
-// scroll animation
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".reveal").forEach(el => {
-    let top = el.getBoundingClientRect().top;
+// ===== SAFE SCROLL ANIMATION =====
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
     if (top < window.innerHeight - 100) {
-      el.classList.add("active");
+      el.classList.add("show");
     }
   });
+}
+
+// aktifin animasi tanpa bikin blank
+window.addEventListener("DOMContentLoaded", () => {
+  reveals.forEach(el => el.classList.add("animate"));
+  revealOnScroll();
 });
+
+window.addEventListener("scroll", revealOnScroll);
