@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riyanda Bambang Wicaksono - Customer Experience Analyst | Data & Marketing Professional</title>
+    <title>Riyanda Bambang Wicaksono - Customer Experience Analyst</title>
+
     <style>
         * {
             margin: 0;
@@ -12,26 +13,24 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #0a0a0a;
-            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 20px;
         }
 
         header {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            padding: 2rem 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+            padding: 20px 0;
             border-bottom: 1px solid #1e40af;
             position: sticky;
             top: 0;
-            z-index: 100;
         }
 
         nav {
@@ -41,408 +40,153 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
             color: #3b82f6;
+            font-weight: bold;
         }
 
         .nav-links {
             display: flex;
+            gap: 20px;
             list-style: none;
-            gap: 2rem;
         }
 
         .nav-links a {
-            color: #e0e0e0;
+            color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #3b82f6;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: #3b82f6;
-            margin: 3px 0;
-            transition: 0.3s;
         }
 
         section {
-            padding: 5rem 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        section:nth-child(even) {
-            background: #111827;
+            padding: 80px 0;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            font-size: 3rem;
+        }
+
+        .name-highlight {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(59,130,246,0.4);
         }
 
         h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
             color: #3b82f6;
-            margin-bottom: 2rem;
-            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        h4 {
-            font-size: 1.1rem;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
+        .job-item {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
         }
 
         .job-meta {
             color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .responsibilities {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .responsibilities li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .responsibilities li::before {
-            content: "▸";
-            color: #3b82f6;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .home-content {
-            max-width: 800px;
-        }
-
-        .home-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            color: #94a3b8;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .about-content {
-            max-width: 700px;
-            font-size: 1.1rem;
-            text-align: justify;
+            margin-bottom: 10px;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            max-width: 600px;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 10px;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            background: #1e40af;
+            padding: 10px;
+            border-radius: 20px;
             text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .education-item {
-            background: rgba(59, 130, 246, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #3b82f6;
-            margin-bottom: 1rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 600px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            text-decoration: none;
-            color: #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #3b82f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .job-section {
-            max-width: 800px;
-        }
-
-        .job-item {
-            margin-bottom: 4rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #374151;
-        }
-
-        .job-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
         }
 
         footer {
-            background: #0a0a0a;
-            padding: 2rem 0;
             text-align: center;
+            padding: 20px;
             border-top: 1px solid #1e40af;
-            color: #94a3b8;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            section {
-                padding: 3rem 0;
-                min-height: auto;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .home-content {
-                text-align: center;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Hey There, let me introduce my self!</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <section id="home">
-        <div class="container">
-            <div class="home-content">
-                <h1><span class="name-highlight">Riyanda Bambang Wicaksono</span></h1>
-                <p class="home-subtitle">Customer Experience Analyst | Data & Marketing Professional</p>
-            </div>
+<header>
+    <nav class="container">
+        <div class="logo">RBW</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home">
+    <div class="container">
+        <h1><span class="name-highlight">Riyanda Bambang Wicaksono</span></h1>
+        <p>Customer Experience Analyst | Data & Marketing Professional</p>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            Customer Experience Analyst with experience in telecommunications, digital sales,
+            and partnership management. Skilled in data analysis, reporting, and improving
+            customer satisfaction through actionable insights.
+        </p>
+    </div>
+</section>
+
+<section id="experience">
+    <div class="container">
+        <h2>Experience</h2>
+
+        <div class="job-item">
+            <h3>Customer Experience Analyst</h3>
+            <div class="job-meta">Telkom Indonesia | 2025 – Present</div>
+            <p>Analyzing customer complaints and building dashboards.</p>
         </div>
-    </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>Riyanda Bambang Wicaksono is a dedicated Customer Experience Analyst and Data & Marketing Professional with extensive experience in the telecommunications industry. With a strong background in digital sales, customer experience management, and data analytics, Riyanda has consistently delivered measurable improvements in customer satisfaction and business performance. Currently serving at PT Telekomunikasi Indonesia Tbk, Riyanda specializes in analyzing customer feedback and operational data to develop actionable insights and service improvement strategies. Previous roles at Traveloka, XL Axiata, and PT Infomedia Nusantara (Telkom Group) have honed expertise in market partnership management, retail operations, and digital sales leadership. Holding a Bachelor of Communication Sciences from Malikussaleh University, Riyanda combines analytical rigor with excellent communication skills to drive customer-centric solutions across diverse business functions.</p>
-            </div>
+        <div class="job-item">
+            <h3>Market Partnership Executive</h3>
+            <div class="job-meta">Traveloka | 2024</div>
         </div>
-    </section>
 
-    <section id="experience" class="job-section">
-        <div class="container">
-            <h2>Experience</h2>
-            
-            <div class="job-item">
-                <h3>Assistant Officer – Customer Experience Analyst</h3>
-                <h4>PT Telekomunikasi Indonesia Tbk</h4>
-                <div class="job-meta">Aug 2025 – Present | Jakarta</div>
-                <ul class="responsibilities">
-                    <li>Analyze customer feedback, complaints, and operational service data</li>
-                    <li>Develop dashboards and analytical reports using Looker Studio, Excel, and Google Sheets</li>
-                    <li>Identify root causes of customer dissatisfaction and propose service improvement strategies</li>
-                    <li>Collaborate with cross-functional teams to enhance customer journey and service quality</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <h3>Market Partnership Executive</h3>
-                <h4>Traveloka</h4>
-                <div class="job-meta">Until 28 July 2024 | BSD</div>
-                <ul class="responsibilities">
-                    <li>Coordinate and support execution of partnership campaigns with merchants</li>
-                    <li>Monitor performance of partner promotions and ensure smooth campaign implementation</li>
-                    <li>Maintain communication between partners and internal marketing teams</li>
-                    <li>Assist in reporting and documenting partnership results</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <h3>Store Manager</h3>
-                <h4>XL Axiata</h4>
-                <div class="job-meta">Sep 2023 – Dec 2023 | Batam</div>
-                <ul class="responsibilities">
-                    <li>Supervise store staff and daily retail operations</li>
-                    <li>Monitor sales targets, stock availability, and service performance</li>
-                    <li>Ensure customer satisfaction and handle escalated customer issues</li>
-                    <li>Prepare operational and sales reports</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <h3>Supervisor – Digital Sales Marketing Officer</h3>
-                <h4>PT Infomedia Nusantara (Telkom Group)</h4>
-                <div class="job-meta">Aug 2022 – Aug 2023</div>
-                <ul class="responsibilities">
-                    <li>Supervise and guide digital sales team performance</li>
-                    <li>Monitor KPI achievements and operational quality</li>
-                    <li>Provide coaching and performance feedback to team members</li>
-                    <li>Ensure compliance with company procedures and service standards</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <h3>Digital Sales Marketing Officer</h3>
-                <h4>PT Infomedia Nusantara (Telkom Group)</h4>
-                <div class="job-meta">Feb 2020 – Jul 2022</div>
-                <ul class="responsibilities">
-                    <li>Conduct digital product sales through online communication channels</li>
-                    <li>Assist customers with product information and service activation</li>
-                    <li>Record sales performance and prepare reports</li>
-                    <li>Support customer follow-up and retention activities</li>
-                </ul>
-            </div>
+        <div class="job-item">
+            <h3>Store Manager</h3>
+            <div class="job-meta">XL Axiata | 2023</div>
         </div>
-    </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">Data Analysis</div>
-                <div class="skill-tag">Customer Experience Management</div>
-                <div class="skill-tag">Digital Marketing</div>
-                <div class="skill-tag">Partnership Management</div>
-                <div class="skill-tag">Microsoft Excel</div>
-                <div class="skill-tag">Google Sheets</div>
-                <div class="skill-tag">Looker Studio</div>
-                <div class="skill-tag">Communication</div>
-                <div class="skill-tag">Master Of Ceremony</div>
-                <div class="skill-tag">Broadcasting (Announcer)</div>
-                <div class="skill-tag">Music Lead</div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Communication Sciences</h3>
-                <h4>Malikussaleh University</h4>
-            </div>
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Excel</div>
+            <div class="skill-tag">Data Analysis</div>
+            <div class="skill-tag">Looker Studio</div>
+            <div class="skill-tag">Customer Experience</div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <a href="tel:+6281262333884" class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div>
-                        <div style="font-weight: 600; color: #3b82f6;">Phone</div>
-                        <div>+62 812-6233-3884</div>
-                    </div>
-                </a>
-                <a href="mailto:wsbembeng@gmail.com" class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div>
-                        <div style="font-weight: 600; color: #3b82f6;">Email</div>
-                        <div>wsbembeng@gmail.com</div>
-                    </div>
-                </a>
-                <a href="https://wa.me/6281262333884" class="contact-item">
-                    <div class="contact-icon">💬</div>
-                    <div>
-                        <div style="font-weight: 600; color: #3b82f6;">WhatsApp</div>
-                        <div>+62 812-6233-3884</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>Email: wsbembeng@gmail.com</p>
+        <p>Phone: 0812-6233-3884</p>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Riyanda Bambang Wicaksono. All rights reserved.</p>
-        </div>
-    </footer>
+<footer>
+    <p>© 2026 Riyanda Bambang Wicaksono</p>
+</footer>
+
 </body>
 </html>
