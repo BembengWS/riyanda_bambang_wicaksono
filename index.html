@@ -22,10 +22,6 @@
 <li><a href="#education">Education</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
-<div class="hamburger" onclick="toggleMenu()">
-<span></span><span></span><span></span>
-</div>
 </nav>
 </header>
 
@@ -34,12 +30,12 @@
 <div class="container hero">
 
 <div class="hero-text">
-<h1 class="gradient-text">Riyanda Bambang Wicaksono</h1>
-<div class="typing" id="typing"></div>
+<h1 class="gradient">Riyanda Bambang Wicaksono</h1>
+<p class="subtitle" id="typing"></p>
 
 <p>
 Customer Experience Analyst focused on transforming data into actionable insights 
-to improve business performance.
+to improve business performance and customer satisfaction.
 </p>
 
 <a href="#contact" class="btn">Contact Me</a>
@@ -53,46 +49,72 @@ to improve business performance.
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="reveal">
+<section id="about">
 <div class="container">
 <h2>About Me</h2>
+
 <div class="card">
-Customer Experience Analyst with experience in telecommunications,
-digital sales, and partnership management.
+Customer Experience Analyst with experience in telecommunications, digital sales,
+and partnership management. Skilled in data analysis, dashboard creation, and
+improving customer experience.
 </div>
+
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="reveal">
+<section id="experience">
 <div class="container">
 <h2>Experience</h2>
 
 <div class="card">
-<h3>Customer Experience Analyst</h3>
-<p>PT Telekomunikasi Indonesia</p>
+<h3>Assistant Officer – Customer Experience Analyst</h3>
+<p class="meta">PT Telekomunikasi Indonesia | Aug 2025 – Present</p>
 <ul>
-<li>Analyze customer data</li>
-<li>Create dashboard</li>
-<li>Improve service quality</li>
+<li>Analyze customer feedback and operational data</li>
+<li>Create dashboards using Looker Studio & Excel</li>
+<li>Identify root cause of issues</li>
+<li>Improve customer experience strategy</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Market Partnership Executive</h3>
-<p>Traveloka</p>
+<p class="meta">Traveloka | 2024</p>
 <ul>
-<li>Manage campaign</li>
-<li>Monitor performance</li>
+<li>Manage merchant campaigns</li>
+<li>Monitor campaign performance</li>
+<li>Coordinate with partners</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Supervisor Digital Sales</h3>
-<p>Infomedia</p>
+<h3>Store Manager</h3>
+<p class="meta">XL Axiata | 2023</p>
 <ul>
-<li>Lead team</li>
-<li>Optimize campaign</li>
+<li>Supervise store operations</li>
+<li>Handle customer issues</li>
+<li>Achieve sales target</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Supervisor – Digital Sales Marketing Officer</h3>
+<p class="meta">Infomedia | 2022–2023</p>
+<ul>
+<li>Lead digital sales team</li>
+<li>Optimize campaign performance</li>
+<li>Analyze KPI data</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Digital Sales Marketing Officer</h3>
+<p class="meta">Infomedia | 2020–2022</p>
+<ul>
+<li>Execute digital marketing campaigns</li>
+<li>Analyze customer behavior</li>
+<li>Maintain reporting dashboard</li>
 </ul>
 </div>
 
@@ -100,33 +122,37 @@ digital sales, and partnership management.
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="reveal">
+<section id="skills">
 <div class="container">
 <h2>Skills</h2>
 
-<div class="skills-grid">
-<div class="skill">Data Analysis</div>
-<div class="skill">Customer Experience</div>
-<div class="skill">Excel</div>
-<div class="skill">Looker Studio</div>
+<div class="skills">
+<div>Data Analysis</div>
+<div>Customer Experience</div>
+<div>Looker Studio</div>
+<div>Excel</div>
+<div>Digital Marketing</div>
+<div>Partnership</div>
 </div>
 
 </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="reveal">
+<section id="education">
 <div class="container">
 <h2>Education</h2>
+
 <div class="card">
-Bachelor of Communication Sciences
+Bachelor of Communication Sciences - Malikussaleh University
 </div>
+
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="reveal">
-<div class="container contact">
+<section id="contact">
+<div class="container">
 <h2>Contact</h2>
 
 <a href="tel:+6281262333884">📞 Phone</a>
@@ -144,12 +170,7 @@ Bachelor of Communication Sciences
 </footer>
 
 <script>
-function toggleMenu(){
-document.querySelector(".nav-links").classList.toggle("active");
-}
-
-/* typing */
-const text=["Customer Experience Analyst","Data Enthusiast","Marketing"];
+const text=["Customer Experience Analyst","Data Enthusiast","Marketing Professional"];
 let i=0,j=0,del=false;
 
 function type(){
@@ -162,16 +183,6 @@ else{j--;if(j<0){del=false;i=(i+1)%text.length;}}
 setTimeout(type,del?50:100);
 }
 type();
-
-/* reveal */
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-reveals.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){
-el.classList.add("active");
-}
-});
-});
 </script>
 
 </body>
