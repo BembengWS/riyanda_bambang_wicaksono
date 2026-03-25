@@ -1,145 +1,135 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riyanda Bambang Wicaksono</title>
 
-body{
-font-family:Segoe UI,sans-serif;
-background:#0f172a;
-color:#e0e0e0;
-}
+<link rel="stylesheet" href="style.css">
+</head>
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
+<body>
 
-/* HEADER */
-header{
-background:#020617;
-position:sticky;
-top:0;
-z-index:100;
-}
+<header>
+<nav class="container">
+<div class="logo">Bems</div>
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-.nav-links{
-display:flex;
-gap:20px;
-list-style:none;
-}
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+</header>
 
-.nav-links a{
-color:white;
-text-decoration:none;
-}
+<!-- HERO -->
+<section id="home">
+<div class="container hero">
 
-/* HERO */
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:30px;
-}
+<div class="hero-text">
+<h1 class="gradient">Riyanda Bambang Wicaksono</h1>
+<p id="typing" class="subtitle"></p>
 
-.hero-image img{
-width:250px;
-border-radius:50%;
-box-shadow:0 0 30px #3b82f6;
-}
+<p>
+Customer Experience Analyst focused on transforming data into actionable insights 
+to improve business performance and customer satisfaction.
+</p>
 
-/* TEXT */
-.gradient{
-background:linear-gradient(90deg,#3b82f6,#9333ea);
--webkit-background-clip:text;
-color:transparent;
-}
+<a href="#contact" class="btn">Contact Me</a>
+</div>
 
-.subtitle{
-color:#94a3b8;
-margin-bottom:10px;
-}
+<div class="hero-image">
+<img src="foto.jpg" alt="profile">
+</div>
 
-/* BUTTON */
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 20px;
-background:#3b82f6;
-color:white;
-text-decoration:none;
-border-radius:6px;
-}
+</div>
+</section>
 
-/* SECTION */
-section{
-padding:80px 0;
-}
+<!-- ABOUT -->
+<section id="about" class="reveal">
+<div class="container">
+<h2>About Me</h2>
+<div class="card">
+Customer Experience Analyst with experience in telecommunications,
+digital sales, and partnership management.
+</div>
+</div>
+</section>
 
-/* CARD */
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-margin-top:15px;
-transition:.3s;
-}
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+<div class="container">
+<h2>Experience</h2>
 
-.card:hover{
-transform:translateY(-5px);
-}
+<div class="card">
+<h3>Customer Experience Analyst</h3>
+<p class="meta">PT Telekomunikasi Indonesia</p>
+<ul>
+<li>Analyze customer data</li>
+<li>Create dashboards</li>
+<li>Improve service quality</li>
+</ul>
+</div>
 
-.meta{
-color:#94a3b8;
-margin-bottom:10px;
-}
+<div class="card">
+<h3>Market Partnership Executive</h3>
+<p class="meta">Traveloka</p>
+<ul>
+<li>Manage campaigns</li>
+<li>Monitor performance</li>
+</ul>
+</div>
 
-/* SKILLS */
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-}
+</div>
+</section>
 
-.skills div{
-background:#3b82f6;
-padding:10px;
-text-align:center;
-border-radius:5px;
-}
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+<div class="container">
+<h2>Skills</h2>
 
-/* CONTACT */
-#contact a{
-display:block;
-margin-bottom:10px;
-color:white;
-}
+<div class="skills">
+<div>Data Analysis</div>
+<div>Customer Experience</div>
+<div>Excel</div>
+<div>Looker Studio</div>
+</div>
 
-/* ANIMATION */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:0.6s;
-}
+</div>
+</section>
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
+<!-- EDUCATION -->
+<section id="education" class="reveal">
+<div class="container">
+<h2>Education</h2>
+<div class="card">
+Bachelor of Communication Sciences
+</div>
+</div>
+</section>
 
-/* MOBILE */
-.hamburger{
-display:none;
-cursor:pointer;
-}
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+<div class="container">
+<h2>Contact</h2>
 
-@media(max-width:768px){
-.nav-links{display:none;}
-.nav-links.active{display:flex;flex-direction:column;}
-.hamburger{display:block;}
-.hero{flex-direction:column;text-align:center;}
-}
+<a href="tel:+6281262333884">📞 Phone</a>
+<a href="mailto:wsbembeng@gmail.com">✉️ Email</a>
+<a href="https://wa.me/6281262333884">💬 WhatsApp</a>
+<a href="https://www.linkedin.com/in/bembengws/" target="_blank">🔗 LinkedIn</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 Riyanda Bambang Wicaksono
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
