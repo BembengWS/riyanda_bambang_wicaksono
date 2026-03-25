@@ -11,8 +11,20 @@ function type(){
 let current=text[i];
 document.getElementById("typing").textContent=current.slice(0,j);
 
-if(!del){j++;if(j>current.length){del=true;setTimeout(type,1000);return;}}
-else{j--;if(j<0){del=false;i=(i+1)%text.length;}}
+if(!del){
+j++;
+if(j>current.length){
+del=true;
+setTimeout(type,1000);
+return;
+}
+}else{
+j--;
+if(j<0){
+del=false;
+i=(i+1)%text.length;
+}
+}
 
 setTimeout(type,del?50:100);
 }
