@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,69 +18,89 @@
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #0a0a0a;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: auto;
             padding: 0 20px;
         }
 
         header {
             background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-            padding: 20px 0;
             border-bottom: 1px solid #1e40af;
             position: sticky;
             top: 0;
+            z-index: 100;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
 
         .logo {
-            color: #3b82f6;
             font-weight: bold;
+            color: #3b82f6;
+            font-size: 1.4rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
             list-style: none;
+            gap: 25px;
         }
 
         .nav-links a {
-            color: white;
+            color: #e0e0e0;
             text-decoration: none;
+            font-weight: 500;
         }
 
         section {
-            padding: 80px 0;
+            padding: 90px 0;
+        }
+
+        section:nth-child(even) {
+            background: #111827;
         }
 
         h1 {
             font-size: 3rem;
-        }
-
-        .name-highlight {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            padding: 10px 20px;
-            border-radius: 12px;
-            display: inline-block;
-            box-shadow: 0 5px 20px rgba(59,130,246,0.4);
+            margin-bottom: 10px;
         }
 
         h2 {
             color: #3b82f6;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        h4 {
+            color: #3b82f6;
+            margin-bottom: 5px;
+        }
+
+        .name-highlight {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            padding: 8px 18px;
+            border-radius: 10px;
+        }
+
+        .home-subtitle {
+            color: #94a3b8;
         }
 
         .job-item {
             margin-bottom: 40px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #374151;
         }
 
         .job-meta {
@@ -87,23 +108,66 @@
             margin-bottom: 10px;
         }
 
+        .responsibilities {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .responsibilities li {
+            margin-bottom: 6px;
+        }
+
+        .responsibilities li::before {
+            content: "▸ ";
+            color: #3b82f6;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-            gap: 10px;
+            gap: 15px;
         }
 
         .skill-tag {
-            background: #1e40af;
-            padding: 10px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            padding: 12px;
+            border-radius: 25px;
             text-align: center;
         }
 
+        .education-item {
+            background: rgba(59,130,246,0.1);
+            padding: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+        }
+
         footer {
+            border-top: 1px solid #1e40af;
             text-align: center;
             padding: 20px;
-            border-top: 1px solid #1e40af;
+            color: #94a3b8;
+        }
+
+        /* Scroll animation */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -118,6 +182,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -126,67 +191,91 @@
 <section id="home">
     <div class="container">
         <h1><span class="name-highlight">Riyanda Bambang Wicaksono</span></h1>
-        <p>Customer Experience Analyst | Data & Marketing Professional</p>
+        <p class="home-subtitle">Customer Experience Analyst | Data & Marketing Professional</p>
     </div>
 </section>
 
-<section id="about">
+<section id="about" class="hidden">
     <div class="container">
         <h2>About Me</h2>
         <p>
-            Customer Experience Analyst with experience in telecommunications, digital sales,
-            and partnership management. Skilled in data analysis, reporting, and improving
-            customer satisfaction through actionable insights.
+            Riyanda Bambang Wicaksono is a dedicated Customer Experience Analyst with extensive experience in telecommunications,
+            digital sales, and partnership management. Skilled in analyzing customer feedback, developing dashboards, and delivering
+            actionable insights to improve customer satisfaction and business performance.
         </p>
     </div>
 </section>
 
-<section id="experience">
+<section id="experience" class="hidden">
     <div class="container">
         <h2>Experience</h2>
 
         <div class="job-item">
-            <h3>Customer Experience Analyst</h3>
-            <div class="job-meta">Telkom Indonesia | 2025 – Present</div>
-            <p>Analyzing customer complaints and building dashboards.</p>
+            <h3>Assistant Officer – Customer Experience Analyst</h3>
+            <h4>PT Telekomunikasi Indonesia Tbk</h4>
+            <div class="job-meta">Aug 2025 – Present | Jakarta</div>
+            <ul class="responsibilities">
+                <li>Analyze customer feedback and operational service data</li>
+                <li>Develop dashboards using Looker Studio, Excel, and Google Sheets</li>
+                <li>Identify root causes of customer dissatisfaction</li>
+                <li>Collaborate with cross-functional teams to improve service quality</li>
+            </ul>
         </div>
 
         <div class="job-item">
             <h3>Market Partnership Executive</h3>
-            <div class="job-meta">Traveloka | 2024</div>
+            <h4>Traveloka</h4>
+            <div class="job-meta">Until 28 July 2024 | BSD</div>
+            <ul class="responsibilities">
+                <li>Coordinate partnership campaigns with merchants</li>
+                <li>Monitor performance of partner promotions</li>
+                <li>Maintain communication between partners and internal teams</li>
+                <li>Prepare reports on partnership performance</li>
+            </ul>
         </div>
 
         <div class="job-item">
             <h3>Store Manager</h3>
-            <div class="job-meta">XL Axiata | 2023</div>
+            <h4>XL Axiata</h4>
+            <div class="job-meta">Sep 2023 – Dec 2023 | Batam</div>
+            <ul class="responsibilities">
+                <li>Supervise store operations and staff performance</li>
+                <li>Monitor sales targets and service quality</li>
+                <li>Handle escalated customer issues</li>
+                <li>Prepare operational and sales reports</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <h3>Supervisor – Digital Sales Marketing Officer</h3>
+            <h4>PT Infomedia Nusantara (Telkom Group)</h4>
+            <div class="job-meta">Aug 2022 – Aug 2023</div>
+            <ul class="responsibilities">
+                <li>Supervise digital sales team performance</li>
+                <li>Monitor KPI achievements and operational quality</li>
+                <li>Provide coaching and performance feedback</li>
+                <li>Ensure compliance with company procedures</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <h3>Digital Sales Marketing Officer</h3>
+            <h4>PT Infomedia Nusantara (Telkom Group)</h4>
+            <div class="job-meta">Feb 2020 – Jul 2022</div>
+            <ul class="responsibilities">
+                <li>Conduct digital product sales through online channels</li>
+                <li>Assist customers with product activation and support</li>
+                <li>Record sales performance and prepare reports</li>
+                <li>Support customer retention activities</li>
+            </ul>
         </div>
 
     </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="hidden">
     <div class="container">
         <h2>Skills</h2>
         <div class="skills-grid">
-            <div class="skill-tag">Excel</div>
-            <div class="skill-tag">Data Analysis</div>
-            <div class="skill-tag">Looker Studio</div>
-            <div class="skill-tag">Customer Experience</div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <h2>Contact</h2>
-        <p>Email: wsbembeng@gmail.com</p>
-        <p>Phone: 0812-6233-3884</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Riyanda Bambang Wicaksono</p>
-</footer>
-
-</body>
-</html>
+            <div class="skill-tag">Data
+```
