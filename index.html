@@ -11,6 +11,17 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
+<script>
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+});
+</script>
+  
 body{
 font-family:'Inter',sans-serif;
 background:#020617;
