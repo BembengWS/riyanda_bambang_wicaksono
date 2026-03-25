@@ -1,4 +1,13 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'Inter',sans-serif;
@@ -19,6 +28,7 @@ background:rgba(2,6,23,0.6);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
+z-index:100;
 }
 
 nav{
@@ -27,6 +37,7 @@ justify-content:space-between;
 align-items:center;
 }
 
+/* NAV */
 .nav-links{
 display:flex;
 gap:25px;
@@ -36,6 +47,26 @@ list-style:none;
 .nav-links a{
 color:#cbd5f5;
 text-decoration:none;
+position:relative;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+background:#3b82f6;
+left:0;
+bottom:-4px;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#3b82f6;
+}
+
+.nav-links a:hover::after{
+width:100%;
 }
 
 /* HERO */
@@ -50,10 +81,19 @@ gap:50px;
 .hero-text h1{
 font-size:3rem;
 margin-bottom:10px;
+background:linear-gradient(90deg,#60a5fa,#a78bfa);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.subtitle{color:#94a3b8;}
-.desc{margin-top:10px;color:#cbd5f5;}
+.subtitle{
+color:#94a3b8;
+}
+
+.desc{
+margin-top:10px;
+color:#cbd5f5;
+}
 
 .hero-btns{
 margin-top:20px;
@@ -68,6 +108,11 @@ background:#3b82f6;
 color:white;
 border-radius:8px;
 text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#2563eb;
 }
 
 .secondary{
@@ -82,16 +127,26 @@ border-radius:50%;
 }
 
 /* SECTION */
-section{padding:100px 0;}
+section{
+padding:120px 0;
+}
 
-h2{margin-bottom:30px;}
+h2{
+margin-bottom:30px;
+}
 
 /* CARD */
 .card{
 background:#1e293b;
-padding:20px;
-border-radius:10px;
-margin-bottom:20px;
+padding:25px;
+border-radius:12px;
+margin-bottom:25px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(59,130,246,0.15);
 }
 
 .meta{
@@ -116,15 +171,15 @@ border:1px solid #3b82f6;
 display:block;
 margin-bottom:10px;
 color:white;
+text-decoration:none;
+transition:0.3s;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-.hero{flex-direction:column;text-align:center;}
-.grid-2{grid-template-columns:1fr;}
+.contact a:hover{
+color:#3b82f6;
 }
 
-/* ===== SKILLS UPGRADE ===== */
+/* ===== SKILLS ===== */
 
 .skills-grid{
 display:grid;
@@ -159,7 +214,7 @@ font-size:0.9rem;
 color:#94a3b8;
 }
 
-/* garis glow atas */
+/* glow line */
 .skill-card::before{
 content:"";
 position:absolute;
@@ -174,4 +229,34 @@ transition:0.3s;
 
 .skill-card:hover::before{
 opacity:1;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.grid-2{
+grid-template-columns:1fr;
+}
+
+.nav-links{
+display:none;
+}
 }
