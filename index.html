@@ -1,189 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riyanda Bambang Wicaksono</title>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<header>
-<nav class="container">
-<div class="logo">Bems</div>
-
-<ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
-
-<!-- HERO -->
-<section id="home">
-<div class="container hero">
-
-<div class="hero-text">
-<h1 class="gradient">Riyanda Bambang Wicaksono</h1>
-<p class="subtitle" id="typing"></p>
-
-<p>
-Customer Experience Analyst focused on transforming data into actionable insights 
-to improve business performance and customer satisfaction.
-</p>
-
-<a href="#contact" class="btn">Contact Me</a>
-</div>
-
-<div class="hero-image">
-<img src="foto.jpg" alt="profile">
-</div>
-
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<div class="container">
-<h2>About Me</h2>
-
-<div class="card">
-Customer Experience Analyst with experience in telecommunications, digital sales,
-and partnership management. Skilled in data analysis, dashboard creation, and
-improving customer experience.
-</div>
-
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-<div class="container">
-<h2>Experience</h2>
-
-<div class="card">
-<h3>Assistant Officer – Customer Experience Analyst</h3>
-<p class="meta">PT Telekomunikasi Indonesia | Aug 2025 – Present</p>
-<ul>
-<li>Analyze customer feedback and operational data</li>
-<li>Create dashboards using Looker Studio & Excel</li>
-<li>Identify root cause of issues</li>
-<li>Improve customer experience strategy</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Market Partnership Executive</h3>
-<p class="meta">Traveloka | 2024</p>
-<ul>
-<li>Manage merchant campaigns</li>
-<li>Monitor campaign performance</li>
-<li>Coordinate with partners</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Store Manager</h3>
-<p class="meta">XL Axiata | 2023</p>
-<ul>
-<li>Supervise store operations</li>
-<li>Handle customer issues</li>
-<li>Achieve sales target</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Supervisor – Digital Sales Marketing Officer</h3>
-<p class="meta">Infomedia | 2022–2023</p>
-<ul>
-<li>Lead digital sales team</li>
-<li>Optimize campaign performance</li>
-<li>Analyze KPI data</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Digital Sales Marketing Officer</h3>
-<p class="meta">Infomedia | 2020–2022</p>
-<ul>
-<li>Execute digital marketing campaigns</li>
-<li>Analyze customer behavior</li>
-<li>Maintain reporting dashboard</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<div class="container">
-<h2>Skills</h2>
-
-<div class="skills">
-<div>Data Analysis</div>
-<div>Customer Experience</div>
-<div>Looker Studio</div>
-<div>Excel</div>
-<div>Digital Marketing</div>
-<div>Partnership</div>
-</div>
-
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-<div class="container">
-<h2>Education</h2>
-
-<div class="card">
-Bachelor of Communication Sciences - Malikussaleh University
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<div class="container">
-<h2>Contact</h2>
-
-<a href="tel:+6281262333884">📞 Phone</a>
-<a href="mailto:wsbembeng@gmail.com">✉️ Email</a>
-<a href="https://wa.me/6281262333884">💬 WhatsApp</a>
-<a href="https://www.linkedin.com/in/bembengws/" target="_blank">
-🔗 LinkedIn
-</a>
-
-</div>
-</section>
-
-<footer>
-© 2026 Riyanda Bambang Wicaksono
-</footer>
-
-<script>
-const text=["Customer Experience Analyst","Data Enthusiast","Marketing Professional"];
-let i=0,j=0,del=false;
-
-function type(){
-let current=text[i];
-document.getElementById("typing").textContent=current.slice(0,j);
-
-if(!del){j++;if(j>current.length){del=true;setTimeout(type,1000);return;}}
-else{j--;if(j<0){del=false;i=(i+1)%text.length;}}
-
-setTimeout(type,del?50:100);
+body{
+font-family:Segoe UI,sans-serif;
+background:#0f172a;
+color:#e0e0e0;
 }
-type();
-</script>
 
-</body>
-</html>
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+/* HEADER */
+header{
+background:#020617;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.hero-image img{
+width:250px;
+border-radius:50%;
+box-shadow:0 0 30px #3b82f6;
+}
+
+/* TEXT */
+.gradient{
+background:linear-gradient(90deg,#3b82f6,#9333ea);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.subtitle{
+color:#94a3b8;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#3b82f6;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+/* SECTION */
+section{
+padding:80px 0;
+}
+
+/* CARD */
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+margin-top:15px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.meta{
+color:#94a3b8;
+margin-bottom:10px;
+}
+
+/* SKILLS */
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+}
+
+.skills div{
+background:#3b82f6;
+padding:10px;
+text-align:center;
+border-radius:5px;
+}
+
+/* CONTACT */
+#contact a{
+display:block;
+margin-bottom:10px;
+color:white;
+}
+
+/* ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+.hamburger{
+display:none;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+.nav-links{display:none;}
+.nav-links.active{display:flex;flex-direction:column;}
+.hamburger{display:block;}
+.hero{flex-direction:column;text-align:center;}
+}
