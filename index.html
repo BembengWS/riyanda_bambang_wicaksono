@@ -9,53 +9,43 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:'Segoe UI',sans-serif;
-    color:#e0e0e0;
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    scroll-behavior:smooth;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+color:#e0e0e0;
+background: radial-gradient(circle at top, #0f172a, #020617);
+scroll-behavior:smooth;
+letter-spacing:.3px;
 }
 
-/* CONTAINER */
 .container{max-width:1100px;margin:auto;padding:0 20px;}
 
 /* HEADER */
 header{
-    backdrop-filter: blur(12px);
-    background: rgba(15,23,42,0.6);
-    border-bottom:1px solid rgba(59,130,246,0.3);
-    position:sticky;top:0;z-index:100;
+backdrop-filter: blur(12px);
+background: rgba(15,23,42,0.6);
+border-bottom:1px solid rgba(59,130,246,0.3);
+position:sticky;top:0;z-index:100;
 }
 
 nav{
-    display:flex;justify-content:space-between;
-    align-items:center;padding:20px 0;
+display:flex;justify-content:space-between;
+align-items:center;padding:20px 0;
 }
 
-.logo{color:#3b82f6;font-weight:bold;}
+.logo{font-weight:bold;color:#3b82f6;font-size:1.3rem;}
 
 .nav-links{
-    display:flex;gap:25px;list-style:none;
+display:flex;gap:25px;list-style:none;
 }
 
 .nav-links a{
-    color:#e0e0e0;text-decoration:none;
+color:#e0e0e0;text-decoration:none;
+font-weight:500;
 }
 
 .nav-links a:hover{color:#3b82f6;}
 
-/* MOBILE */
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:4px;}
 .hamburger span{width:25px;height:3px;background:#3b82f6;}
-
-@media(max-width:768px){
-.nav-links{
-display:none;flex-direction:column;
-position:absolute;right:20px;top:70px;
-background:#111827;padding:20px;
-}
-.nav-links.active{display:flex;}
-.hamburger{display:flex;}
-}
 
 /* HERO */
 #home{text-align:center;padding:120px 0;}
@@ -68,11 +58,10 @@ background:linear-gradient(135deg,#3b82f6,#9333ea);
 -webkit-text-fill-color:transparent;
 }
 
-.typing{color:#94a3b8;margin-top:10px;}
+.typing{color:#94a3b8;margin-top:10px;font-size:1.2rem;}
 
-/* BUTTON */
 .btn{
-display:inline-block;margin-top:25px;
+margin-top:25px;display:inline-block;
 padding:12px 22px;border-radius:8px;
 background:linear-gradient(135deg,#3b82f6,#6366f1);
 color:white;text-decoration:none;
@@ -82,6 +71,8 @@ transition:.3s;
 
 /* SECTION */
 section{padding:90px 0;}
+
+section:nth-child(even){background:#0b1220;}
 
 /* CARD */
 .card{
@@ -102,26 +93,51 @@ transition:.3s;
 /* SKILLS */
 .skills-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
 }
 
 .skill{
-padding:15px;text-align:center;
-border-radius:10px;
 background:linear-gradient(135deg,#1e3a8a,#3b82f6);
+padding:15px;border-radius:25px;
+text-align:center;font-weight:500;
 transition:.3s;
 }
-.skill:hover{transform:translateY(-5px);}
+.skill:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(59,130,246,.3);
+}
 
 /* CONTACT */
 .contact a{
-display:block;margin-bottom:10px;
-text-decoration:none;color:white;
+display:flex;gap:10px;
+padding:15px;border:1px solid #1e40af;
+border-radius:10px;text-decoration:none;
+color:white;margin-bottom:10px;
+transition:.3s;
+}
+.contact a:hover{
+background:#1e3a8a;
+transform:translateX(5px);
 }
 
 /* FOOTER */
-footer{text-align:center;padding:20px;opacity:.6;}
+footer{
+text-align:center;padding:20px;
+border-top:1px solid #1e40af;
+color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{
+display:none;flex-direction:column;
+position:absolute;right:20px;top:70px;
+background:#111827;padding:20px;
+}
+.nav-links.active{display:flex;}
+.hamburger{display:flex;}
+}
 </style>
 </head>
 
@@ -146,7 +162,7 @@ footer{text-align:center;padding:20px;opacity:.6;}
 </nav>
 </header>
 
-<!-- HERO -->
+<!-- HOME -->
 <section id="home">
 <div class="container">
 <h1 class="gradient-text">Riyanda Bambang Wicaksono</h1>
@@ -160,15 +176,14 @@ footer{text-align:center;padding:20px;opacity:.6;}
 <div class="container">
 <h2>About Me</h2>
 <div class="card">
-Customer Experience Analyst with experience in telecommunications,
-digital sales, and partnership management. Skilled in transforming 
-operational and customer data into actionable insights to improve 
-service quality and business performance.
+Customer Experience Analyst with experience in telecommunications, digital sales,
+and partnership management. Skilled in transforming operational and customer data
+into actionable insights to improve service quality and business performance.
 </div>
 </div>
 </section>
 
-<!-- EXPERIENCE (FIXED FULL) -->
+<!-- EXPERIENCE -->
 <section id="experience">
 <div class="container">
 <h2>Experience</h2>
@@ -256,6 +271,9 @@ service quality and business performance.
 <a href="tel:+6281262333884">📞 +62 812-6233-3884</a>
 <a href="mailto:wsbembeng@gmail.com">✉️ wsbembeng@gmail.com</a>
 <a href="https://wa.me/6281262333884">💬 WhatsApp</a>
+<a href="https://www.linkedin.com/in/bembengws/" target="_blank">
+🔗 linkedin.com/in/bembengws
+</a>
 
 </div>
 </section>
@@ -268,6 +286,12 @@ service quality and business performance.
 function toggleMenu(){
 document.querySelector(".nav-links").classList.toggle("active");
 }
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.querySelector(".nav-links").classList.remove("active");
+});
+});
 
 /* typing */
 const text=["Customer Experience Analyst","Data Enthusiast","Marketing Professional"];
