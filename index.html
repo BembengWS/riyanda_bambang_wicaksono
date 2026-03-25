@@ -1,212 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riyanda Bambang Wicaksono</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Riyanda Bambang Wicaksono</title>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            scroll-behavior: smooth;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1e40af;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background: #111827;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: #3b82f6;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* HOME */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .desc {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+            border: 3px solid #1e40af;
+        }
+
+        /* CARDS */
+        .card {
+            background: rgba(30, 30, 46, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            color: #3b82f6;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "▸";
+            color: #3b82f6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 64, 175, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact a:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #94a3b8;
+            border-top: 1px solid #1e40af;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <div class="logo">Bems</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HEADER -->
-<header>
-<nav class="container">
-<div class="logo">Bems</div>
+    <!-- HOME -->
+    <section id="home">
+        <div class="container hero">
+            <div class="hero-text">
+                <h1>Riyanda Bambang Wicaksono</h1>
+                <p class="subtitle">Customer Experience Analyst | Data & Marketing Professional</p>
+                <p class="desc">
+                    Customer Experience Analyst with expertise in transforming customer data into actionable insights to improve service quality and business performance.
+                </p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/350x350/1e40af/ffffff?text=Profile" alt="Profile Photo">
+            </div>
+        </div>
+    </section>
 
-<ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>
+                    Customer Experience Analyst and Data & Marketing Professional with extensive experience in telecommunications, digital sales, and partnership management. Currently at PT Telekomunikasi Indonesia Tbk, specializing in customer feedback analysis, dashboard development using Looker Studio, Excel, and Google Sheets, and cross-functional collaboration to enhance customer journey and service quality. Proven track record in digital sales leadership, retail operations, and market partnership execution across Traveloka, XL Axiata, and PT Infomedia Nusantara (Telkom Group).
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- HOME -->
-<section id="home" class="reveal">
-<div class="container hero">
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
 
-<div class="hero-text">
-<h1>Riyanda Bambang Wicaksono</h1>
+            <div class="card">
+                <h3>Assistant Officer – Customer Experience Analyst</h3>
+                <h4>PT Telekomunikasi Indonesia Tbk</h4>
+                <p class="meta">Aug 2025 – Present | Jakarta</p>
+                <ul>
+                    <li>Analyze customer feedback, complaints, and operational service data</li>
+                    <li>Develop dashboards and analytical reports using Looker Studio, Excel, and Google Sheets</li>
+                    <li>Identify root causes of customer dissatisfaction and propose service improvement strategies</li>
+                    <li>Collaborate with cross-functional teams to enhance customer journey and service quality</li>
+                </ul>
+            </div>
 
-<!-- WAJIB ADA BUAT JS -->
-<p id="typing" class="subtitle"></p>
+            <div class="card">
+                <h3>Market Partnership Executive</h3>
+                <h4>Traveloka</h4>
+                <p class="meta">Until 28 July 2024 | BSD</p>
+                <ul>
+                    <li>Coordinate and support execution of partnership campaigns with merchants</li>
+                    <li>Monitor performance of partner promotions and ensure smooth campaign implementation</li>
+                    <li>Maintain communication between partners and internal marketing teams</li>
+                    <li>Assist in reporting and documenting partnership results</li>
+                </ul>
+            </div>
 
-<p class="desc">
-Customer Experience Analyst with expertise in transforming customer data into actionable insights to improve service quality and business performance.
-</p>
+            <div class="card">
+                <h3>Store Manager</h3>
+                <h4>XL Axiata</h4>
+                <p class="meta">Sep 2023 – Dec 2023 | Batam</p>
+                <ul>
+                    <li>Supervise store staff and daily retail operations</li>
+                    <li>Monitor sales targets, stock availability, and service performance</li>
+                    <li>Ensure customer satisfaction and handle escalated customer issues</li>
+                    <li>Prepare operational and sales reports</li>
+                </ul>
+            </div>
 
-<div class="hero-btns">
-  <a href="#contact" class="btn">Contact Me</a>
-</div>
+            <div class="card">
+                <h3>Supervisor – Digital Sales Marketing Officer</h3>
+                <h4>PT Infomedia Nusantara (Telkom Group)</h4>
+                <p class="meta">Aug 2022 – Aug 2023</p>
+                <ul>
+                    <li>Supervise and guide digital sales team performance</li>
+                    <li>Monitor KPI achievements and operational quality</li>
+                    <li>Provide coaching and performance feedback to team members</li>
+                    <li>Ensure compliance with company procedures and service standards</li>
+                </ul>
+            </div>
 
-<div class="hero-image">
-<img src="foto.jpg" alt="Profile Photo">
-</div>
+            <div class="card">
+                <h3>Digital Sales Marketing Officer</h3>
+                <h4>PT Infomedia Nusantara (Telkom Group)</h4>
+                <p class="meta">Feb 2020 – Jul 2022</p>
+                <ul>
+                    <li>Conduct digital product sales through online communication channels</li>
+                    <li>Assist customers with product information and service activation</li>
+                    <li>Record sales performance and prepare reports</li>
+                    <li>Support customer follow-up and retention activities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📊 Data Analysis</h3>
+                    <p>Turning complex data into actionable insights</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎯 Customer Experience</h3>
+                    <p>Improving satisfaction & service quality</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📈 Looker Studio</h3>
+                    <p>Interactive dashboards & reporting</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📑 Excel & Google Sheets</h3>
+                    <p>Advanced data processing & analysis</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📣 Digital Marketing</h3>
+                    <p>Campaign optimization & performance</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🤝 Partnership Management</h3>
+                    <p>Strategic business relationships</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="reveal">
-<div class="container">
-<h2>About Me</h2>
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>Bachelor of Communication Sciences</h3>
+                <h4>Malikussaleh University</h4>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<p>
-Customer Experience Analyst with experience in telecommunications, digital sales,
-and partnership management. Skilled in transforming operational and customer data
-into actionable insights to improve service quality and business performance.
-</p>
-</div>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container contact">
+            <h2>Contact</h2>
+            <a href="tel:+6281262333884">📞 +62 812-6233-3884</a>
+            <a href="mailto:wsbembeng@gmail.com">✉️ wsbembeng@gmail.com</a>
+            <a href="https://wa.me/6281262333884">💬 WhatsApp</a>
+            <a href="https://www.linkedin.com/in/bembengws/" target="_blank">🔗 LinkedIn</a>
+        </div>
+    </section>
 
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="reveal">
-<div class="container">
-<h2>Experience</h2>
-
-<div class="card">
-<h3>Assistant Officer – Customer Experience Analyst</h3>
-<h4>PT Telekomunikasi Indonesia Tbk</h4>
-<p class="meta">Aug 2025 – Present | Jakarta</p>
-<ul>
-<li>Analyzed customer feedback and operational data to identify service issues and improve quality</li>
-<li>Built dashboards using Looker Studio & Excel for decision-making</li>
-<li>Collaborated with cross-functional teams to enhance customer experience</li>
-<li>Provided actionable insights from service performance metrics</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Market Partnership Executive</h3>
-<h4>Traveloka</h4>
-<p class="meta">Until July 2024 | BSD</p>
-<ul>
-<li>Managed merchant campaigns and improved partner engagement</li>
-<li>Analyzed campaign performance data to optimize results</li>
-<li>Coordinated communication between partners and internal teams</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Store Manager</h3>
-<h4>XL Axiata</h4>
-<p class="meta">Sep 2023 – Dec 2023 | Batam</p>
-<ul>
-<li>Led store operations and achieved sales targets</li>
-<li>Handled escalated customer issues and improved satisfaction</li>
-<li>Supervised team performance and service quality</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Supervisor – Digital Sales Marketing Officer</h3>
-<h4>PT Infomedia Nusantara</h4>
-<p class="meta">Aug 2022 – Aug 2023</p>
-<ul>
-<li>Led digital sales team and improved campaign performance</li>
-<li>Analyzed data to optimize conversion rates</li>
-<li>Coordinated marketing execution across teams</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Digital Sales Marketing Officer</h3>
-<h4>PT Infomedia Nusantara</h4>
-<p class="meta">Feb 2020 – Jul 2022</p>
-<ul>
-<li>Executed digital campaigns across platforms</li>
-<li>Analyzed customer behavior and engagement data</li>
-<li>Supported reporting and dashboard creation</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="reveal">
-<div class="container">
-<h2>Skills</h2>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-<h3>📊 Data Analysis</h3>
-<p>Turning data into actionable insights</p>
-</div>
-
-<div class="skill-card">
-<h3>🎯 Customer Experience</h3>
-<p>Improving satisfaction and service quality</p>
-</div>
-
-<div class="skill-card">
-<h3>📈 Looker Studio</h3>
-<p>Building interactive dashboards</p>
-</div>
-
-<div class="skill-card">
-<h3>📑 Excel & Google Sheets</h3>
-<p>Data processing & reporting</p>
-</div>
-
-<div class="skill-card">
-<h3>📣 Digital Marketing</h3>
-<p>Campaign optimization & analysis</p>
-</div>
-
-<div class="skill-card">
-<h3>🤝 Partnership Management</h3>
-<p>Managing business relationships</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="reveal">
-<div class="container">
-<h2>Education</h2>
-
-<div class="card">
-<h3>Bachelor of Communication Sciences</h3>
-<h4>Malikussaleh University</h4>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="reveal">
-<div class="container contact">
-<h2>Contact</h2>
-
-<a href="tel:+6281262333884">📞 +62 812-6233-3884</a>
-<a href="mailto:wsbembeng@gmail.com">✉️ wsbembeng@gmail.com</a>
-<a href="https://wa.me/6281262333884">💬 WhatsApp</a>
-<a href="https://www.linkedin.com/in/bembengws/" target="_blank">🔗 LinkedIn</a>
-
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer style="text-align:center;padding:20px;color:#94a3b8;">
-<p>&copy; 2026 Riyanda Bambang Wicaksono</p>
-</footer>
-
-<!-- JS PALING BAWAH (WAJIB) -->
-<script src="./script.js"></script>
-
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Riyanda Bambang Wicaksono. All rights reserved.</p>
+    </footer>
 </body>
 </html>
