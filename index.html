@@ -7,140 +7,7 @@
 <title>Riyanda Bambang Wicaksono</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-<script>
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".reveal").forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-el.classList.add("active");
-}
-});
-});
-</script>
-  
-body{
-font-family:'Inter',sans-serif;
-background:#020617;
-color:#e5e7eb;
-}
-
-/* CONTAINER */
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-/* HEADER */
-header{
-background:rgba(2,6,23,0.7);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{color:#60a5fa;font-weight:600;}
-
-.nav-links{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-.nav-links a{
-color:#cbd5f5;
-text-decoration:none;
-}
-
-/* HERO */
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:40px;
-min-height:90vh;
-}
-
-.hero-text h1{
-font-size:2.8rem;
-background:linear-gradient(90deg,#60a5fa,#a78bfa);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.subtitle{color:#94a3b8;margin:10px 0;}
-
-.desc{color:#cbd5f5;max-width:500px;}
-
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:#3b82f6;
-border-radius:8px;
-color:white;
-text-decoration:none;
-}
-
-.hero-image img{
-width:250px;
-border-radius:50%;
-}
-
-/* SECTION */
-section{padding:90px 0;}
-
-h2{margin-bottom:25px;}
-
-/* CARD */
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-margin-bottom:20px;
-}
-
-.meta{color:#94a3b8;margin-bottom:10px;}
-
-/* SKILLS */
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
-}
-
-.skill{
-background:#3b82f6;
-padding:10px;
-border-radius:8px;
-text-align:center;
-}
-
-/* CONTACT */
-.contact a{
-display:block;
-margin-bottom:10px;
-color:white;
-text-decoration:none;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.hero{flex-direction:column;text-align:center;}
-.nav-links{display:none;}
-}
-</style>
+<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -161,7 +28,7 @@ text-decoration:none;
 </header>
 
 <!-- HOME -->
-<section id="home">
+<section id="home" class="reveal">
 <div class="container hero">
 
 <div class="hero-text">
@@ -176,14 +43,14 @@ Customer Experience Analyst with expertise in transforming customer data into ac
 </div>
 
 <div class="hero-image">
-<img src="foto.jpg">
+<img src="foto.jpg" alt="Profile">
 </div>
 
 </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
 <div class="container">
 <h2>About Me</h2>
 
@@ -197,7 +64,7 @@ into actionable insights to improve service quality and business performance.
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="reveal">
 <div class="container">
 <h2>Experience</h2>
 
@@ -206,10 +73,10 @@ into actionable insights to improve service quality and business performance.
 <h4>PT Telekomunikasi Indonesia Tbk</h4>
 <p class="meta">Aug 2025 – Present | Jakarta</p>
 <ul>
-<li>Analyzed customer feedback and operational service data to identify root causes of issues and improve service quality</li>
-<li>Developed dashboards using Looker Studio and Excel for data-driven decision making</li>
+<li>Analyzed customer feedback and operational data to identify service issues and improve quality</li>
+<li>Built dashboards using Looker Studio & Excel for decision-making</li>
 <li>Collaborated with cross-functional teams to enhance customer experience</li>
-<li>Monitored service performance metrics and provided actionable insights</li>
+<li>Provided actionable insights from service performance metrics</li>
 </ul>
 </div>
 
@@ -219,7 +86,7 @@ into actionable insights to improve service quality and business performance.
 <p class="meta">Until July 2024 | BSD</p>
 <ul>
 <li>Managed merchant campaigns and improved partner engagement</li>
-<li>Monitored performance data to optimize campaign effectiveness</li>
+<li>Analyzed campaign performance data to optimize results</li>
 <li>Coordinated communication between partners and internal teams</li>
 </ul>
 </div>
@@ -229,7 +96,7 @@ into actionable insights to improve service quality and business performance.
 <h4>XL Axiata</h4>
 <p class="meta">Sep 2023 – Dec 2023 | Batam</p>
 <ul>
-<li>Led store operations and ensured achievement of sales targets</li>
+<li>Led store operations and achieved sales targets</li>
 <li>Handled escalated customer issues and improved satisfaction</li>
 <li>Supervised team performance and service quality</li>
 </ul>
@@ -240,9 +107,9 @@ into actionable insights to improve service quality and business performance.
 <h4>PT Infomedia Nusantara</h4>
 <p class="meta">Aug 2022 – Aug 2023</p>
 <ul>
-<li>Led digital sales team and improved conversion rates</li>
-<li>Analyzed campaign data to optimize performance</li>
-<li>Coordinated campaign execution across teams</li>
+<li>Led digital sales team and improved campaign performance</li>
+<li>Analyzed data to optimize conversion rates</li>
+<li>Coordinated marketing execution across teams</li>
 </ul>
 </div>
 
@@ -251,9 +118,9 @@ into actionable insights to improve service quality and business performance.
 <h4>PT Infomedia Nusantara</h4>
 <p class="meta">Feb 2020 – Jul 2022</p>
 <ul>
-<li>Executed digital marketing campaigns across platforms</li>
-<li>Analyzed customer behavior and engagement metrics</li>
-<li>Supported reporting and dashboard development</li>
+<li>Executed digital campaigns across platforms</li>
+<li>Analyzed customer behavior and engagement data</li>
+<li>Supported reporting and dashboard creation</li>
 </ul>
 </div>
 
@@ -261,7 +128,7 @@ into actionable insights to improve service quality and business performance.
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal">
 <div class="container">
 <h2>Skills</h2>
 
@@ -269,32 +136,32 @@ into actionable insights to improve service quality and business performance.
 
 <div class="skill-card">
 <h3>📊 Data Analysis</h3>
-<p>Transforming raw data into actionable insights</p>
+<p>Turning data into actionable insights</p>
 </div>
 
 <div class="skill-card">
 <h3>🎯 Customer Experience</h3>
-<p>Improving service quality & customer satisfaction</p>
+<p>Improving satisfaction and service quality</p>
 </div>
 
 <div class="skill-card">
 <h3>📈 Looker Studio</h3>
-<p>Building interactive dashboards for decision-making</p>
+<p>Building interactive dashboards</p>
 </div>
 
 <div class="skill-card">
 <h3>📑 Excel & Google Sheets</h3>
-<p>Data processing, reporting & analysis</p>
+<p>Data processing & reporting</p>
 </div>
 
 <div class="skill-card">
 <h3>📣 Digital Marketing</h3>
-<p>Campaign optimization & performance tracking</p>
+<p>Campaign optimization & analysis</p>
 </div>
 
 <div class="skill-card">
 <h3>🤝 Partnership Management</h3>
-<p>Managing stakeholders & business collaboration</p>
+<p>Managing business relationships</p>
 </div>
 
 </div>
@@ -303,7 +170,7 @@ into actionable insights to improve service quality and business performance.
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
+<section id="education" class="reveal">
 <div class="container">
 <h2>Education</h2>
 
@@ -316,7 +183,7 @@ into actionable insights to improve service quality and business performance.
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal">
 <div class="container contact">
 <h2>Contact</h2>
 
@@ -328,25 +195,10 @@ into actionable insights to improve service quality and business performance.
 </div>
 </section>
 
-<footer style="text-align:center;padding:20px;color:#94a3b8;">
-© 2026 Riyanda Bambang Wicaksono
+<footer>
+<p>&copy; 2026 Riyanda Bambang Wicaksono</p>
 </footer>
 
-<script>
-const text=["Customer Experience Analyst","Data Enthusiast"];
-let i=0,j=0,del=false;
-
-function type(){
-let current=text[i];
-document.getElementById("typing").textContent=current.slice(0,j);
-
-if(!del){j++;if(j>current.length){del=true;setTimeout(type,1000);return;}}
-else{j--;if(j<0){del=false;i=(i+1)%text.length;}}
-
-setTimeout(type,del?50:100);
-}
-type();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
