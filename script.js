@@ -1,7 +1,4 @@
-function toggleMenu(){
-document.querySelector(".nav-links").classList.toggle("active");
-}
-
+// typing
 const text=["Customer Experience Analyst","Data Enthusiast"];
 let i=0,j=0,del=false;
 
@@ -15,3 +12,13 @@ else{j--;if(j<0){del=false;i=(i+1)%text.length;}}
 setTimeout(type,del?50:100);
 }
 type();
+
+// scroll animation
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+});
