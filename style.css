@@ -123,3 +123,55 @@ color:white;
 .hero{flex-direction:column;text-align:center;}
 .grid-2{grid-template-columns:1fr;}
 }
+
+/* ===== SKILLS UPGRADE ===== */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.skill-card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.skill-card:hover{
+transform:translateY(-6px);
+border-color:#3b82f6;
+box-shadow:0 10px 30px rgba(59,130,246,0.2);
+}
+
+.skill-card h3{
+margin-bottom:10px;
+font-size:1.1rem;
+}
+
+.skill-card p{
+font-size:0.9rem;
+color:#94a3b8;
+}
+
+/* garis glow atas */
+.skill-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,#3b82f6,#a855f7);
+opacity:0;
+transition:0.3s;
+}
+
+.skill-card:hover::before{
+opacity:1;
+}
