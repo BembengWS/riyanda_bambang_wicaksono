@@ -1,4 +1,4 @@
-// ===== TYPING (SAFE) =====
+// ===== TYPING SAFE =====
 const typingElement = document.getElementById("typing");
 
 if (typingElement) {
@@ -31,7 +31,7 @@ if (typingElement) {
 }
 
 
-// ===== SAFE SCROLL ANIMATION =====
+// ===== SAFE REVEAL (ANTI BLANK) =====
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -44,10 +44,9 @@ function revealOnScroll() {
   });
 }
 
-// aktifin animasi tanpa bikin blank
+// 🔥 INI KUNCI NYA
 window.addEventListener("DOMContentLoaded", () => {
-  reveals.forEach(el => el.classList.add("animate"));
-  revealOnScroll();
+  revealOnScroll(); // langsung munculin
 });
 
 window.addEventListener("scroll", revealOnScroll);
