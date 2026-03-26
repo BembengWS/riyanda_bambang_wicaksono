@@ -11,7 +11,7 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Inter',sans-serif;
-background:#f8fafc; /* lebih clean */
+background:#f8fafc;
 color:#1f2937;
 line-height:1.6;
 }
@@ -205,6 +205,25 @@ left:0;
 color:#2563eb;
 }
 
+/* ===== ABOUT ===== */
+.about-card{
+max-width:800px;
+margin:auto;
+font-size:1.05rem;
+border-left:4px solid #2563eb;
+padding-left:20px;
+}
+
+.about-card p{
+margin-bottom:18px;
+line-height:1.8;
+text-align:justify;
+}
+
+.about-card p:last-child{
+margin-bottom:0;
+}
+
 /* ===== SKILLS ===== */
 .skills-grid{
 display:grid;
@@ -278,6 +297,7 @@ transform:translateY(0);
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
+
 .hero{
 flex-direction:column;
 text-align:center;
@@ -290,4 +310,5 @@ display:none;
 .hero-image img{
 width:260px;
 }
+
 }
