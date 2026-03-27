@@ -14,6 +14,7 @@ font-family:'Inter',sans-serif;
 background:#f8fafc;
 color:#1f2937;
 line-height:1.6;
+font-size:16px;
 }
 
 /* ===== CONTAINER ===== */
@@ -117,7 +118,6 @@ margin-bottom:1rem;
 min-height:28px;
 }
 
-/* typing cursor */
 .subtitle::after{
 content:"|";
 margin-left:5px;
@@ -139,6 +139,7 @@ margin-bottom:2rem;
 .hero-btns{
 display:flex;
 gap:1rem;
+flex-wrap:wrap;
 }
 
 .btn{
@@ -158,6 +159,7 @@ transform:translateY(-2px);
 /* ===== IMAGE ===== */
 .hero-image img{
 width:320px;
+max-width:100%;
 border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
@@ -295,7 +297,7 @@ padding:20px;
 color:#6b7280;
 }
 
-/* ===== REVEAL ANIMATION ===== */
+/* ===== REVEAL ===== */
 .reveal{
 opacity:0;
 transform:translateY(40px);
@@ -307,31 +309,61 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ===== PROJECT GRID (future ready) ===== */
+/* ===== PROJECT GRID ===== */
 .projects-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
 }
 
-/* ===== MOBILE ===== */
+/* =========================
+   TABLET
+========================= */
+@media(max-width:1024px){
+.hero{
+gap:2rem;
+}
+section{
+padding:70px 0;
+}
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:768px){
+
+.container{
+padding:15px;
+}
+
+section{
+padding:50px 0;
+}
 
 .hero{
 flex-direction:column;
 text-align:center;
 }
 
+.hero-image img{
+width:240px;
+}
+
 .nav-links{
 display:none;
 }
 
-.hero-image img{
-width:260px;
+h2{
+font-size:24px;
 }
 
-.projects-grid{
-grid-template-columns:1fr;
+.card{
+padding:18px;
+}
+
+.about-card{
+font-size:0.98rem;
 }
 
 }
