@@ -396,3 +396,8 @@ color:#cbd5f5;
 body.dark .logo{
 color:#e2e8f0;
 }
+
+.reveal {
+    opacity: 1;
+    transform: none;
+}
