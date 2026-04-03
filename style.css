@@ -182,4 +182,7 @@ footer{
 font-size:13px;
 }
 
+/* biar ga overflow ke samping */
+body{
+overflow-x:hidden;
 }
