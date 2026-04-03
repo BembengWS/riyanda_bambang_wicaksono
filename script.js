@@ -1,66 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================
-    // TYPING (SUPER STABLE)
+    // TYPING
     // =========================
     const el = document.getElementById("typing");
 
-    if (!el) {
-        console.error("Element #typing tidak ditemukan");
-        return;
-    }
+    if (el) {
+        const words = [
+            "Customer Experience Analyst",
+            "Data & Dashboard Specialist",
+            "Digital Marketing Professional",
+            "Partnership & Marketplace Specialist"
+        ];
 
-    const words = [
-        "Customer Experience Analyst",
-        "Data & Dashboard Specialist",
-        "Digital Marketing Professional",
-        "Partnership & Marketplace Specialist"
-    ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
 
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+        function loop() {
+            const current = words[wordIndex];
+            el.textContent = current.substring(0, charIndex);
 
-    function loop() {
-        const current = words[wordIndex];
-
-        // update text
-        el.textContent = current.substring(0, charIndex);
-
-        if (!deleting) {
-            charIndex++;
-
-            if (charIndex > current.length) {
-                deleting = true;
-                setTimeout(loop, 1000);
-                return;
+            if (!deleting) {
+                charIndex++;
+                if (charIndex > current.length) {
+                    deleting = true;
+                    setTimeout(loop, 1000);
+                    return;
+                }
+            } else {
+                charIndex--;
+                if (charIndex < 0) {
+                    deleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(loop, 300);
+                    return;
+                }
             }
-        } else {
-            charIndex--;
 
-            if (charIndex < 0) {
-                deleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(loop, 300);
-                return;
-            }
+            setTimeout(loop, deleting ? 50 : 90);
         }
 
-        setTimeout(loop, deleting ? 50 : 90);
+        loop();
     }
 
-    loop();
-
-
     // =========================
-    // SCROLL REVEAL (SAFE)
+    // SCROLL REVEAL + STAGGER
     // =========================
-   const reveals = document.querySelectorAll(".reveal");
+    const reveals = document.querySelectorAll(".reveal");
 
-// kasih delay satu-satu
-reveals.forEach((el, index) => {
-    el.style.transitionDelay = `${index * 0.1}s`;
-});
+    reveals.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+    });
+
     function reveal() {
         const h = window.innerHeight;
 
@@ -76,27 +68,31 @@ reveals.forEach((el, index) => {
     window.addEventListener("scroll", reveal);
     reveal();
 
-});
 
-// =========================
-// DARK MODE
-// =========================
-const toggle = document.getElementById("darkToggle");
+    // =========================
+    // DARK MODE (FIXED)
+    // =========================
+    const toggle = document.getElementById("darkToggle");
 
-// load dari localStorage
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-    toggle.textContent = "☀️";
-}
+    if (toggle) {
 
-toggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+        // load saved theme
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            toggle.textContent = "☀️";
+        }
 
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-        toggle.textContent = "☀️";
-    } else {
-        localStorage.setItem("theme", "light");
-        toggle.textContent = "🌙";
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                toggle.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggle.textContent = "🌙";
+            }
+        });
     }
+
 });
