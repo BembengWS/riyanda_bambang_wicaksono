@@ -87,3 +87,52 @@ document.addEventListener("DOMContentLoaded", () => {
   revealOnScroll();
 
 });
+
+
+// AUTO ADD REVEAL CLASS
+document.querySelectorAll("section, .card, .skill-card").forEach(el => {
+  el.classList.add("reveal");
+});
+
+// NAVBAR SCROLL EFFECT
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+// DARK MODE TOGGLE
+const toggle = document.getElementById("darkToggle");
+
+if(toggle){
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("dark");
+  });
+}
+
+// ACTIVE NAV LINK
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
