@@ -1,108 +1,60 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+document.addEventListener("DOMContentLoaded", function () {
+
+const typingElement = document.getElementById("typing");
+
+if (typingElement) {
+const roles = [
+"Customer Experience Analyst",
+"Data & Dashboard Specialist",
+"Digital Marketing Professional",
+"Partnership Specialist"
+];
+
+let i = 0;
+let j = 0;
+let isDeleting = false;
+
+function typing() {
+let current = roles[i];
+
+if (isDeleting) {
+j--;
+} else {
+j++;
 }
 
-body{
-font-family:'Inter',sans-serif;
-background:#f8fafc;
-color:#1f2937;
+typingElement.textContent = current.substring(0, j);
+
+if (!isDeleting && j === current.length) {
+isDeleting = true;
+setTimeout(typing, 1000);
+return;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
+if (isDeleting && j === 0) {
+isDeleting = false;
+i = (i + 1) % roles.length;
 }
 
-header{
-position:sticky;
-top:0;
-background:white;
-border-bottom:1px solid #ddd;
+setTimeout(typing, isDeleting ? 50 : 100);
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
+typing();
 }
 
-.nav-links{
-display:flex;
-gap:20px;
-list-style:none;
+// REVEAL
+const reveals = document.querySelectorAll(".reveal");
+
+function showOnScroll() {
+reveals.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if (top < window.innerHeight - 100) {
+el.classList.add("show");
+}
+});
 }
 
-.nav-links a{
-text-decoration:none;
-color:#555;
-}
+window.addEventListener("scroll", showOnScroll);
+showOnScroll();
 
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-min-height:100vh;
-}
-
-.subtitle{
-color:#2563eb;
-font-size:1.3rem;
-min-height:30px;
-}
-
-.subtitle::after{
-content:"|";
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:0;}
-}
-
-.btn{
-background:#2563eb;
-color:white;
-padding:10px 20px;
-border-radius:8px;
-display:inline-block;
-margin-top:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-margin-top:20px;
-}
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.skill-card{
-background:white;
-padding:20px;
-border-radius:10px;
-text-align:center;
-}
-
-.contact a{
-display:block;
-margin:10px 0;
-}
-
-.reveal{
-opacity:0;
-transform:translateY(30px);
-transition:0.5s;
-}
-
-.reveal.show{
-opacity:1;
-transform:translateY(0);
-}
+});
