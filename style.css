@@ -96,16 +96,30 @@ display:block;
 margin:10px 0;
 }
 
-.reveal{
-opacity:0;
-transform:translateY(30px);
-transition:0.5s;
+/* =========================
+   🔥 ADVANCED ANIMATION
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.reveal.show{
-opacity:1;
-transform:translateY(0);
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
+
+
+/* =========================
+   🔥 STAGGER EFFECT (TARUH DI SINI)
+========================= */
+.container .reveal:nth-of-type(1) { transition-delay: 0.1s; }
+.container .reveal:nth-of-type(2) { transition-delay: 0.2s; }
+.container .reveal:nth-of-type(3) { transition-delay: 0.3s; }
+.container .reveal:nth-of-type(4) { transition-delay: 0.4s; }
+.container .reveal:nth-of-type(5) { transition-delay: 0.5s; }
 
 /* =========================
    MOBILE FIX FINAL
