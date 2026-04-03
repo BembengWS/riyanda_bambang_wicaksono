@@ -288,3 +288,7 @@ h2 {
 .hero-image img:hover {
     transform: scale(1.03);
 }
+
+body {
+    scroll-behavior: smooth;
+}
