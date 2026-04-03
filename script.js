@@ -55,8 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // SCROLL REVEAL (SAFE)
     // =========================
-    const reveals = document.querySelectorAll(".reveal");
+   const reveals = document.querySelectorAll(".reveal");
 
+// kasih delay satu-satu
+reveals.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 0.1}s`;
+});
     function reveal() {
         const h = window.innerHeight;
 
