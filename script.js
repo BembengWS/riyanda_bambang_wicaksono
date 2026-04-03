@@ -1,4 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // =========================
+// 📊 ANIMATED COUNTER
+// =========================
+const counters = document.querySelectorAll(".counter");
+
+const runCounter = (el) => {
+    const target = +el.getAttribute("data-target");
+    let count = 0;
+
+    const speed = target / 100;
+
+    const update = () => {
+        count += speed;
+
+        if (count < target) {
+            el.textContent = Math.floor(count);
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = target;
+        }
+    };
+
+    update();
+};
+
+// trigger pas muncul di layar
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            runCounter(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.6 });
+
+counters.forEach(counter => {
+    observer.observe(counter);
+});
 
     // =========================
     // TYPING
