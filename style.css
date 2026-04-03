@@ -1,316 +1,8 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Inter',sans-serif;
-background:#f8fafc;
-color:#1f2937;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-header{
-position:sticky;
-top:0;
-background:white;
-border-bottom:1px solid #ddd;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.nav-links{
-display:flex;
-gap:20px;
-list-style:none;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#555;
-}
-
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-min-height:100vh;
-}
-
-.subtitle{
-color:#2563eb;
-font-size:1.3rem;
-min-height:30px;
-}
-
-.subtitle::after{
-content:"|";
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:0;}
-}
-
-.btn{
-background:#2563eb;
-color:white;
-padding:10px 20px;
-border-radius:8px;
-display:inline-block;
-margin-top:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-margin-top:20px;
-}
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.skill-card{
-background:white;
-padding:20px;
-border-radius:10px;
-text-align:center;
-}
-
-.contact a{
-display:block;
-margin:10px 0;
-}
-
 /* =========================
-   🔥 ADVANCED ANIMATION
+   🌙 DARK MODE FINAL
 ========================= */
 
-.reveal {
-    opacity: 0;
-    transform: translateY(60px) scale(0.98);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-
-/* =========================
-   🔥 STAGGER EFFECT (TARUH DI SINI)
-========================= */
-.container .reveal:nth-of-type(1) { transition-delay: 0.1s; }
-.container .reveal:nth-of-type(2) { transition-delay: 0.2s; }
-.container .reveal:nth-of-type(3) { transition-delay: 0.3s; }
-.container .reveal:nth-of-type(4) { transition-delay: 0.4s; }
-.container .reveal:nth-of-type(5) { transition-delay: 0.5s; }
-
-/* =========================
-   MOBILE FIX FINAL
-========================= */
-@media (max-width: 768px){
-
-/* CONTAINER */
-.container{
-padding:15px;
-}
-
-/* NAVBAR */
-.nav-links{
-display:none;
-}
-
-/* HERO */
-/* ===== HERO (FIX TOTAL RESPONSIVE) ===== */
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:60px;
-min-height:100vh;
-}
-
-/* TEXT */
-.hero-text{
-flex:1;
-min-width:280px;
-}
-
-.hero-text h1{
-font-size:clamp(28px, 5vw, 48px);
-line-height:1.2;
-}
-
-.subtitle{
-font-size:clamp(16px, 2.5vw, 20px);
-color:#2563eb;
-min-height:28px;
-font-weight:600;
-}
-
-.desc{
-font-size:clamp(14px, 2vw, 18px);
-}
-
-/* IMAGE */
-.hero-image{
-flex:1;
-display:flex;
-justify-content:center;
-}
-
-.hero-image img{
-width:100%;
-max-width:320px;
-border-radius:16px;
-}
-
-/* =========================
-   MOBILE FIX (REAL FIX)
-========================= */
-@media (max-width: 768px){
-
-.hero{
-flex-direction:column-reverse; /* 🔥 ini bikin bagus */
-text-align:center;
-min-height:auto;
-padding-top:40px;
-}
-
-/* TEXT */
-.hero-text h1{
-font-size:26px;
-}
-
-.subtitle{
-font-size:15px;
-}
-
-.desc{
-font-size:14px;
-}
-
-/* IMAGE */
-.hero-image img{
-max-width:200px;
-}
-
-/* BUTTON */
-.hero-btns{
-justify-content:center;
-}
-
-}
-
-/* SECTION */
-section{
-padding:60px 0;
-}
-
-/* CARD */
-.card{
-padding:18px;
-}
-
-/* ABOUT */
-.about-card{
-font-size:14px;
-text-align:left;
-}
-
-/* SKILLS */
-.skills-grid{
-grid-template-columns:1fr;
-}
-
-/* CONTACT */
-.contact a{
-font-size:14px;
-padding:12px;
-}
-
-/* FOOTER */
-footer{
-font-size:13px;
-}
-
-/* biar ga overflow ke samping */
-body{
-overflow-x:hidden;
-}
-
-/* =========================
-   🔥 UPGRADE UI (NEW)
-========================= */
-
-/* CARD UPGRADE */
-.card {
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-/* BUTTON */
-.btn {
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background:#1d4ed8;
-    transform: translateY(-2px);
-}
-
-/* NAV LINK HOVER */
-.nav-links a {
-    transition: 0.2s;
-}
-
-.nav-links a:hover {
-    color:#2563eb;
-}
-
-/* SECTION TITLE */
-h2 {
-    margin-bottom: 20px;
-}
-
-/* IMAGE SMOOTH */
-.hero-image img {
-    transition: 0.3s;
-}
-
-.hero-image img:hover {
-    transform: scale(1.03);
-}
-
-body {
-    scroll-behavior: smooth;
-}
-
-/* =========================
-   🌙 DARK MODE
-========================= */
-
+/* TOGGLE BUTTON */
 #darkToggle {
     background: none;
     border: none;
@@ -318,26 +10,74 @@ body {
     cursor: pointer;
 }
 
-/* DARK MODE STYLE */
+/* GLOBAL */
 .dark {
     background: #0f172a;
     color: #e5e7eb;
 }
 
+/* HEADER */
 .dark header {
     background: #111827;
     border-bottom: 1px solid #333;
 }
 
+/* NAVIGATION */
+.dark .nav-links a {
+    color: #d1d5db;
+    transition: 0.2s;
+}
+
+.dark .nav-links a:hover {
+    color: #60a5fa;
+}
+
+/* HERO */
+.dark .subtitle {
+    color: #60a5fa;
+}
+
+/* CARD & SKILL */
 .dark .card,
 .dark .skill-card {
     background: #1f2937;
+    color: #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.dark .nav-links a {
-    color: #ccc;
+/* TEXT INSIDE CARD */
+.dark .card p,
+.dark .card li,
+.dark .meta {
+    color: #d1d5db;
 }
 
+/* BUTTON */
 .dark .btn {
     background: #3b82f6;
+    transition: 0.3s;
+}
+
+.dark .btn:hover {
+    background: #2563eb;
+}
+
+/* CONTACT */
+.dark .contact a {
+    color: #93c5fd;
+}
+
+/* IMAGE */
+.dark img {
+    opacity: 0.9;
+}
+
+/* FOOTER */
+.dark footer {
+    color: #9ca3af;
+}
+
+/* SMOOTH TRANSITION */
+body {
+    transition: background 0.3s ease, color 0.3s ease;
 }
