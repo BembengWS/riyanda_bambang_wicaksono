@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     // =========================
+// FLOATING CONTACT
+// =========================
+const contactBtn = document.getElementById("contactToggle");
+const contactPopup = document.getElementById("contactPopup");
+
+if (contactBtn) {
+    contactBtn.addEventListener("click", () => {
+        contactPopup.classList.toggle("show");
+    });
+}
+    // =========================
 // 📊 ANIMATED COUNTER
 // =========================
 const counters = document.querySelectorAll(".counter");
