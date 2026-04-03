@@ -1,83 +1,353 @@
 /* =========================
-   🌙 DARK MODE FINAL
+   RESET
 ========================= */
-
-/* TOGGLE BUTTON */
-#darkToggle {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* GLOBAL */
-.dark {
-    background: #0f172a;
-    color: #e5e7eb;
+body{
+font-family:'Inter',sans-serif;
+background:#f8fafc;
+color:#1f2937;
+scroll-behavior:smooth;
+transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* HEADER */
-.dark header {
-    background: #111827;
-    border-bottom: 1px solid #333;
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
-/* NAVIGATION */
-.dark .nav-links a {
-    color: #d1d5db;
-    transition: 0.2s;
+/* =========================
+   💎 GLASS NAVBAR
+========================= */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(0,0,0,0.05);
+transition:all 0.3s ease;
 }
 
-.dark .nav-links a:hover {
-    color: #60a5fa;
+header::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:1px;
+background:linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
 }
 
-/* HERO */
-.dark .subtitle {
-    color: #60a5fa;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-/* CARD & SKILL */
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#555;
+position:relative;
+padding:5px 0;
+transition:0.2s;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+width:0%;
+height:2px;
+bottom:-2px;
+left:0;
+background:#2563eb;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#2563eb;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+min-height:100vh;
+}
+
+.hero-text{
+flex:1;
+}
+
+.hero-text h1{
+font-size:clamp(28px,5vw,48px);
+line-height:1.2;
+letter-spacing:-0.5px;
+background:linear-gradient(to right,#1f2937,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+color:#2563eb;
+font-size:1.3rem;
+min-height:30px;
+font-weight:600;
+}
+
+.subtitle::after{
+content:"|";
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0;}
+}
+
+.desc{
+font-size:16px;
+margin-top:10px;
+}
+
+.hero-image img{
+width:100%;
+max-width:320px;
+border-radius:16px;
+transition:0.3s;
+}
+
+.hero-image img:hover{
+transform:scale(1.03);
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn{
+background:#2563eb;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+display:inline-block;
+margin-top:20px;
+position:relative;
+overflow:hidden;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:translateY(-2px);
+}
+
+.btn::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.2);
+transition:0.4s;
+}
+
+.btn:hover::after{
+left:100%;
+}
+
+/* =========================
+   CARD
+========================= */
+.card{
+background:white;
+padding:20px;
+border-radius:14px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+transition:0.3s;
+border:1px solid rgba(0,0,0,0.04);
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.01);
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.skill-card{
+background:white;
+padding:20px;
+border-radius:14px;
+text-align:center;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact a{
+display:block;
+margin:10px 0;
+}
+
+/* =========================
+   SECTION
+========================= */
+section{
+padding:60px 0;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+/* =========================
+   🔥 ANIMATION
+========================= */
+.reveal{
+opacity:0;
+transform:translateY(60px) scale(0.98);
+transition:all 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+
+.reveal.show{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.hero{
+flex-direction:column-reverse;
+text-align:center;
+min-height:auto;
+padding-top:40px;
+}
+
+.hero-image img{
+max-width:200px;
+}
+
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+body{
+overflow-x:hidden;
+}
+}
+
+/* =========================
+   🌙 DARK MODE
+========================= */
+#darkToggle{
+background:none;
+border:none;
+font-size:20px;
+cursor:pointer;
+}
+
+.dark{
+background:#0f172a;
+color:#e5e7eb;
+}
+
+.dark header{
+background:rgba(17,24,39,0.6);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.dark header::after{
+background:linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.dark .nav-links a{
+color:#d1d5db;
+}
+
+.dark .nav-links a:hover{
+color:#60a5fa;
+}
+
+.dark .nav-links a::after{
+background:#60a5fa;
+}
+
+.dark .hero-text h1{
+background:linear-gradient(to right,#e5e7eb,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.dark .subtitle{
+color:#60a5fa;
+}
+
 .dark .card,
-.dark .skill-card {
-    background: #1f2937;
-    color: #e5e7eb;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+.dark .skill-card{
+background:#1f2937;
+color:#e5e7eb;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.05);
 }
 
-/* TEXT INSIDE CARD */
 .dark .card p,
 .dark .card li,
-.dark .meta {
-    color: #d1d5db;
+.dark .meta{
+color:#d1d5db;
 }
 
-/* BUTTON */
-.dark .btn {
-    background: #3b82f6;
-    transition: 0.3s;
+.dark .btn{
+background:#3b82f6;
 }
 
-.dark .btn:hover {
-    background: #2563eb;
+.dark .btn:hover{
+background:#2563eb;
 }
 
-/* CONTACT */
-.dark .contact a {
-    color: #93c5fd;
+.dark .contact a{
+color:#93c5fd;
 }
 
-/* IMAGE */
-.dark img {
-    opacity: 0.9;
+.dark img{
+opacity:0.9;
 }
 
-/* FOOTER */
-.dark footer {
-    color: #9ca3af;
-}
-
-/* SMOOTH TRANSITION */
-body {
-    transition: background 0.3s ease, color 0.3s ease;
+.dark footer{
+color:#9ca3af;
 }
