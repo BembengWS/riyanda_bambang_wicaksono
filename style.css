@@ -106,3 +106,80 @@ transition:0.5s;
 opacity:1;
 transform:translateY(0);
 }
+
+/* =========================
+   MOBILE FIX FINAL
+========================= */
+@media (max-width: 768px){
+
+/* CONTAINER */
+.container{
+padding:15px;
+}
+
+/* NAVBAR */
+.nav-links{
+display:none;
+}
+
+/* HERO */
+.hero{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.hero-text{
+max-width:100%;
+}
+
+.hero-text h1{
+font-size:28px;
+}
+
+.subtitle{
+font-size:16px;
+}
+
+.desc{
+font-size:14px;
+}
+
+/* IMAGE */
+.hero-image img{
+width:220px;
+}
+
+/* SECTION */
+section{
+padding:60px 0;
+}
+
+/* CARD */
+.card{
+padding:18px;
+}
+
+/* ABOUT */
+.about-card{
+font-size:14px;
+text-align:left;
+}
+
+/* SKILLS */
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+/* CONTACT */
+.contact a{
+font-size:14px;
+padding:12px;
+}
+
+/* FOOTER */
+footer{
+font-size:13px;
+}
+
+}
