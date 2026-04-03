@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================
-    // TYPING ANIMATION
+    // TYPING ANIMATION (FIXED)
     // =========================
     const typingElement = document.getElementById("typing");
 
@@ -21,17 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const currentText = roles[roleIndex];
 
             if (isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex--);
+                charIndex--;
             } else {
-                typingElement.textContent = currentText.substring(0, charIndex++);
+                charIndex++;
             }
 
-            let speed = isDeleting ? 40 : 80;
+            typingElement.textContent = currentText.substring(0, charIndex);
 
+            let speed = isDeleting ? 50 : 90;
+
+            // kalau selesai ngetik
             if (!isDeleting && charIndex === currentText.length) {
-                speed = 1200;
                 isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
+                speed = 1200;
+            }
+
+            // kalau sudah kehapus semua
+            if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 roleIndex = (roleIndex + 1) % roles.length;
                 speed = 300;
@@ -40,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(typeEffect, speed);
         }
 
+        // START
         typeEffect();
     }
 
@@ -64,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // =========================
-    // SCROLL REVEAL ANIMATION
+    // SCROLL REVEAL
     // =========================
     const revealElements = document.querySelectorAll(".reveal");
 
@@ -81,8 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", revealOnScroll);
-
-    // Trigger saat pertama load
     revealOnScroll();
 
 });
