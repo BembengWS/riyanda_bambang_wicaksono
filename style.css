@@ -240,3 +240,51 @@ font-size:13px;
 body{
 overflow-x:hidden;
 }
+
+/* =========================
+   🔥 UPGRADE UI (NEW)
+========================= */
+
+/* CARD UPGRADE */
+.card {
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* BUTTON */
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background:#1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* NAV LINK HOVER */
+.nav-links a {
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color:#2563eb;
+}
+
+/* SECTION TITLE */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* IMAGE SMOOTH */
+.hero-image img {
+    transition: 0.3s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
