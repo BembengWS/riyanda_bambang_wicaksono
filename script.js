@@ -1,60 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-const typingElement = document.getElementById("typing");
+    // =========================
+    // TYPING (SUPER STABLE)
+    // =========================
+    const el = document.getElementById("typing");
 
-if (typingElement) {
-const roles = [
-"Customer Experience Analyst",
-"Data & Dashboard Specialist",
-"Digital Marketing Professional",
-"Partnership Specialist"
-];
+    if (!el) {
+        console.error("Element #typing tidak ditemukan");
+        return;
+    }
 
-let i = 0;
-let j = 0;
-let isDeleting = false;
+    const words = [
+        "Customer Experience Analyst",
+        "Data & Dashboard Specialist",
+        "Digital Marketing Professional",
+        "Partnership & Marketplace Specialist"
+    ];
 
-function typing() {
-let current = roles[i];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-if (isDeleting) {
-j--;
-} else {
-j++;
-}
+    function loop() {
+        const current = words[wordIndex];
 
-typingElement.textContent = current.substring(0, j);
+        // update text
+        el.textContent = current.substring(0, charIndex);
 
-if (!isDeleting && j === current.length) {
-isDeleting = true;
-setTimeout(typing, 1000);
-return;
-}
+        if (!deleting) {
+            charIndex++;
 
-if (isDeleting && j === 0) {
-isDeleting = false;
-i = (i + 1) % roles.length;
-}
+            if (charIndex > current.length) {
+                deleting = true;
+                setTimeout(loop, 1000);
+                return;
+            }
+        } else {
+            charIndex--;
 
-setTimeout(typing, isDeleting ? 50 : 100);
-}
+            if (charIndex < 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(loop, 300);
+                return;
+            }
+        }
 
-typing();
-}
+        setTimeout(loop, deleting ? 50 : 90);
+    }
 
-// REVEAL
-const reveals = document.querySelectorAll(".reveal");
+    loop();
 
-function showOnScroll() {
-reveals.forEach(el => {
-const top = el.getBoundingClientRect().top;
-if (top < window.innerHeight - 100) {
-el.classList.add("show");
-}
-});
-}
 
-window.addEventListener("scroll", showOnScroll);
-showOnScroll();
+    // =========================
+    // SCROLL REVEAL (SAFE)
+    // =========================
+    const reveals = document.querySelectorAll(".reveal");
+
+    function reveal() {
+        const h = window.innerHeight;
+
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+
+            if (top < h - 100) {
+                el.classList.add("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", reveal);
+    reveal();
 
 });
