@@ -1,93 +1,108 @@
-document.addEventListener("DOMContentLoaded", function () {
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    // =========================
-    // TYPING ANIMATION (FIXED)
-    // =========================
-    const typingElement = document.getElementById("typing");
+body{
+font-family:'Inter',sans-serif;
+background:#f8fafc;
+color:#1f2937;
+}
 
-    if (typingElement) {
-        const roles = [
-            "Customer Experience Analyst",
-            "Data & Dashboard Specialist",
-            "Digital Marketing Professional",
-            "Partnership & Marketplace Specialist"
-        ];
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
 
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+header{
+position:sticky;
+top:0;
+background:white;
+border-bottom:1px solid #ddd;
+}
 
-        function typeEffect() {
-            const currentText = roles[roleIndex];
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-            if (isDeleting) {
-                charIndex--;
-            } else {
-                charIndex++;
-            }
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+}
 
-            typingElement.textContent = currentText.substring(0, charIndex);
+.nav-links a{
+text-decoration:none;
+color:#555;
+}
 
-            let speed = isDeleting ? 50 : 90;
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+min-height:100vh;
+}
 
-            // kalau selesai ngetik
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                speed = 1200;
-            }
+.subtitle{
+color:#2563eb;
+font-size:1.3rem;
+min-height:30px;
+}
 
-            // kalau sudah kehapus semua
-            if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                speed = 300;
-            }
+.subtitle::after{
+content:"|";
+animation:blink 1s infinite;
+}
 
-            setTimeout(typeEffect, speed);
-        }
+@keyframes blink{
+50%{opacity:0;}
+}
 
-        // START
-        typeEffect();
-    }
+.btn{
+background:#2563eb;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+display:inline-block;
+margin-top:20px;
+}
 
-    // =========================
-    // SMOOTH SCROLL
-    // =========================
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
 
-            const targetId = this.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
+.skill-card{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
 
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
+.contact a{
+display:block;
+margin:10px 0;
+}
 
-    // =========================
-    // SCROLL REVEAL
-    // =========================
-    const revealElements = document.querySelectorAll(".reveal");
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:0.5s;
+}
 
-    function revealOnScroll() {
-        const windowHeight = window.innerHeight;
-
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - 100) {
-                el.classList.add("show");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-
-});
+.reveal.show{
+opacity:1;
+transform:translateY(0);
+}
