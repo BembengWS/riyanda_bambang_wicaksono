@@ -306,3 +306,38 @@ h2 {
 body {
     scroll-behavior: smooth;
 }
+
+/* =========================
+   🌙 DARK MODE
+========================= */
+
+#darkToggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* DARK MODE STYLE */
+.dark {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.dark header {
+    background: #111827;
+    border-bottom: 1px solid #333;
+}
+
+.dark .card,
+.dark .skill-card {
+    background: #1f2937;
+}
+
+.dark .nav-links a {
+    color: #ccc;
+}
+
+.dark .btn {
+    background: #3b82f6;
+}
