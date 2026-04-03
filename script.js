@@ -1,60 +1,73 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // =========================
-// FLOATING CONTACT
-// =========================
-const contactBtn = document.getElementById("contactToggle");
-const contactPopup = document.getElementById("contactPopup");
-
-if (contactBtn) {
-    contactBtn.addEventListener("click", () => {
-        contactPopup.classList.toggle("show");
-    });
-}
-    // =========================
-// 📊 ANIMATED COUNTER
-// =========================
-const counters = document.querySelectorAll(".counter");
-
-const runCounter = (el) => {
-    const target = +el.getAttribute("data-target");
-    let count = 0;
-
-    const speed = target / 100;
-
-    const update = () => {
-        count += speed;
-
-        if (count < target) {
-            el.textContent = Math.floor(count);
-            requestAnimationFrame(update);
-        } else {
-            el.textContent = target;
-        }
-    };
-
-    update();
-};
-
-// trigger pas muncul di layar
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            runCounter(entry.target);
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.6 });
-
-counters.forEach(counter => {
-    observer.observe(counter);
-});
 
     // =========================
-    // TYPING
+    // FLOATING CONTACT
     // =========================
-    const el = document.getElementById("typing");
+    const contactBtn = document.getElementById("contactToggle");
+    const contactPopup = document.getElementById("contactPopup");
 
-    if (el) {
+    if (contactBtn && contactPopup) {
+
+        // toggle popup
+        contactBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            contactPopup.classList.toggle("show");
+        });
+
+        // klik luar = tutup
+        document.addEventListener("click", (e) => {
+            if (!contactPopup.contains(e.target) && e.target !== contactBtn) {
+                contactPopup.classList.remove("show");
+            }
+        });
+    }
+
+
+    // =========================
+    // 📊 ANIMATED COUNTER
+    // =========================
+    const counters = document.querySelectorAll(".counter");
+
+    if (counters.length > 0) {
+
+        const runCounter = (el) => {
+            const target = +el.getAttribute("data-target") || 0;
+            let count = 0;
+            const speed = Math.max(target / 100, 1);
+
+            const update = () => {
+                count += speed;
+
+                if (count < target) {
+                    el.textContent = Math.floor(count);
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target;
+                }
+            };
+
+            update();
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runCounter(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+
+    // =========================
+    // ✍️ TYPING EFFECT
+    // =========================
+    const typingEl = document.getElementById("typing");
+
+    if (typingEl) {
         const words = [
             "Customer Experience Analyst",
             "Data & Dashboard Specialist",
@@ -68,7 +81,7 @@ counters.forEach(counter => {
 
         function loop() {
             const current = words[wordIndex];
-            el.textContent = current.substring(0, charIndex);
+            typingEl.textContent = current.substring(0, charIndex);
 
             if (!deleting) {
                 charIndex++;
@@ -93,53 +106,57 @@ counters.forEach(counter => {
         loop();
     }
 
+
     // =========================
-    // SCROLL REVEAL + STAGGER
+    // ✨ SCROLL REVEAL
     // =========================
     const reveals = document.querySelectorAll(".reveal");
 
-    reveals.forEach((el, index) => {
-        el.style.transitionDelay = `${index * 0.1}s`;
-    });
+    if (reveals.length > 0) {
 
-    function reveal() {
-        const h = window.innerHeight;
-
-        reveals.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-
-            if (top < h - 100) {
-                el.classList.add("show");
-            }
+        reveals.forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
         });
+
+        function reveal() {
+            const h = window.innerHeight;
+
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+
+                if (top < h - 100) {
+                    el.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
     }
 
-    window.addEventListener("scroll", reveal);
-    reveal();
-
 
     // =========================
-    // DARK MODE (FIXED)
+    // 🌙 DARK MODE
     // =========================
-    const toggle = document.getElementById("darkToggle");
+    const darkToggle = document.getElementById("darkToggle");
 
-    if (toggle) {
+    if (darkToggle) {
 
         // load saved theme
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark");
-            toggle.textContent = "☀️";
+            darkToggle.textContent = "☀️";
         }
 
-        toggle.addEventListener("click", () => {
+        darkToggle.addEventListener("click", () => {
             document.body.classList.toggle("dark");
 
             if (document.body.classList.contains("dark")) {
                 localStorage.setItem("theme", "dark");
-                toggle.textContent = "☀️";
+                darkToggle.textContent = "☀️";
             } else {
                 localStorage.setItem("theme", "light");
-                toggle.textContent = "🌙";
+                darkToggle.textContent = "🌙";
             }
         });
     }
